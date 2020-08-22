@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Page.title</title>
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+
+    <link href="~/Content/style.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+
+                <!-- Start Unorderd list for My Complaints-->
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="~/Users/Index">
+                            <i class="glyphicon glyphicon-home"></i>
+                            Home
+                        </a>
+                    </li>
+
+                    @if (ViewBag.name != null && ViewBag.Usertype == 1)
+
+                    {
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-user"></i>
+                                Welcome @ViewBag.name
+
+                            </a>
+                        </li>
+                        <li>
+                            
+                            <a href='@Url.Action("MyComplaints", "Complaints")'>
+                                <i class="glyphicon glyphicon-eye-open"></i>
+                                My Complaints
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Complaints/SendComplaint">
+                                <i class="glyphicon glyphicon-envelope"></i>
+                                Send Complaint
+
+                            </a>
+                        </li>
+                    }
+
+                    @if (ViewBag.Usertype == 2)
+                    {
+
+                        <li>
+                            <a href="~/Complaints/AllComplaints">
+                                <i class="glyphicon glyphicon-thumbs-down"></i>
+                                All Complaints
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+                <!-- End navbar for my Complaints-->
+                <!-- Start Unorderd list Sign up and Sign in-->
+
+                <ul class="nav navbar-nav navbar-right">
+                    @if (ViewBag.name == null)
+                    {
+                        <li>
+                            <a href="~/Users/SignIn">
+                                <i class="glyphicon glyphicon-log-in"></i>
+                                Sign in
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Users/SignUp">
+                                <i class="glyphicon glyphicon-lock"></i>
+                                Sign up
+
+                            </a>
+                        </li>
+                    }
+                    @if (ViewBag.name != null)
+                    {
+                        <li>
+                            <a href="~/Users/Logout">
+                                <i class="glyphicon glyphicon-log-out"></i>
+                                Sign out
+
+                            </a>
+                        </li>
+                    }
+                    </ul>
+
+                <!--End of unordered list for Sign up and Sign in-->
+            </div>
+        </div>
+    </nav>
+    @RenderBody()
+
+    <!--Footer-->
+        <div class="subfooter">
+            <div class="container">
+                <div>
+                    <p> Copyright @DateTime.Now.Year PwC &copy;</p>
+                </div>
+            </div>
+        </div>
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+﻿@model WebAPI.Models.ComplaintDetails
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Complaint Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplaySenderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisplaySenderName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Refund)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Refund)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactMethods)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactMethods)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComplaintLoggedTime)
+        </dt>
+
+
+        <dd>
+            @Html.DisplayFor(model => model.ComplaintLoggedTime)
+        </dd>
+
+
+
+    </dl>
+</div>

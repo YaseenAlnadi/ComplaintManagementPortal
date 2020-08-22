@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "DWab6p78qfcytf/xmHgSIdim2pzZzopRzdGU4JkouUojWShDCdAP1JKAW6Y2kRG+SmBSyhT3agWeglCD8B7rWA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Mousa\\source\\repos\\ComplaintManagementPortalProject\\BAL\\BAL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mousa\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\Mousa\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Mousa\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

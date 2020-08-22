@@ -1,0 +1,6 @@
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\BAL\bin\Debug\netstandard2.0\BAL.deps.json
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\BAL\bin\Debug\netstandard2.0\BAL.dll
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\BAL\obj\Debug\netstandard2.0\BAL.csprojAssemblyReference.cache
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\BAL\obj\Debug\netstandard2.0\BAL.AssemblyInfoInputs.cache
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\BAL\obj\Debug\netstandard2.0\BAL.AssemblyInfo.cs
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\BAL\obj\Debug\netstandard2.0\BAL.csproj.CoreCompileInputs.cache

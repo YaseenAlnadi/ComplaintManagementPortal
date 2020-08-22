@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebAPI.Models.ComplaintsGrid>
+
+@{
+    ViewBag.Title = "All Complaints";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>All Complaints</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DisplaySenderName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComplaintStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Refund)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComplaintLoggedTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model != null && Model.Count() > 0)
+    {
+
+
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DisplaySenderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ComplaintStatus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Refund)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ComplaintLoggedTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+
+                <td>
+                    <a href='@Url.Action("Details", "Complaints",new { complaintID = item.ComplaintsID })'>
+                        Details|
+                    </a>
+                    <a href='@Url.Action("Edit", "Complaints",new { complaintID = item.ComplaintsID })'>
+                        Edit
+                    </a>
+                </td>
+            </tr>
+        }
+    }
+
+</table>

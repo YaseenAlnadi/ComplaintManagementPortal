@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Complaints">
+    <Key>
+      <PropertyRef Name="ComplaintID" />
+    </Key>
+    <Property Name="ComplaintID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComplaintStatusID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Refund" Type="bit" Nullable="false" />
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ContactMethod" Type="int" Nullable="false" />
+    <Property Name="ComplaintLoggedTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ComplaintsDepartments">
+    <Key>
+      <PropertyRef Name="ComplaintsDepartmentsID" />
+    </Key>
+    <Property Name="ComplaintsDepartmentsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComplaintID" Type="int" Nullable="false" />
+    <Property Name="DepartmentsID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ComplaintStatus">
+    <Key>
+      <PropertyRef Name="ComplaintStatusID" />
+    </Key>
+    <Property Name="ComplaintStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactMethods">
+    <Key>
+      <PropertyRef Name="ContactMethodID" />
+    </Key>
+    <Property Name="ContactMethodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Genders">
+    <Key>
+      <PropertyRef Name="GenderID" />
+    </Key>
+    <Property Name="GenderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SystemUsers">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="CountryID" Type="int" Nullable="false" />
+    <Property Name="GenderID" Type="int" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="UserTypeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTypes">
+    <Key>
+      <PropertyRef Name="UserTypeID" />
+    </Key>
+    <Property Name="UserTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Complaints_ComplaintStatus">
+    <End Role="ComplaintStatus" Type="Self.ComplaintStatus" Multiplicity="1" />
+    <End Role="Complaints" Type="Self.Complaints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComplaintStatus">
+        <PropertyRef Name="ComplaintStatusID" />
+      </Principal>
+      <Dependent Role="Complaints">
+        <PropertyRef Name="ComplaintStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Complaints_ContactMethods">
+    <End Role="ContactMethods" Type="Self.ContactMethods" Multiplicity="1" />
+    <End Role="Complaints" Type="Self.Complaints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContactMethods">
+        <PropertyRef Name="ContactMethodID" />
+      </Principal>
+      <Dependent Role="Complaints">
+        <PropertyRef Name="ContactMethod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Complaints_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="Complaints" Type="Self.Complaints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Complaints">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Complaints_SystemUsers">
+    <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="1" />
+    <End Role="Complaints" Type="Self.Complaints" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SystemUsers">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Complaints">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComplaintsDepartments_Complaints">
+    <End Role="Complaints" Type="Self.Complaints" Multiplicity="1" />
+    <End Role="ComplaintsDepartments" Type="Self.ComplaintsDepartments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Complaints">
+        <PropertyRef Name="ComplaintID" />
+      </Principal>
+      <Dependent Role="ComplaintsDepartments">
+        <PropertyRef Name="ComplaintID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComplaintsDepartments_Departments">
+    <End Role="Departments" Type="Self.Departments" Multiplicity="1" />
+    <End Role="ComplaintsDepartments" Type="Self.ComplaintsDepartments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="ComplaintsDepartments">
+        <PropertyRef Name="DepartmentsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Genders_Genders">
+    <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+    <End Role="Genders1" Type="Self.Genders" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Genders">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="Genders1">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemUsers_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="SystemUsers">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemUsers_Genders">
+    <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+    <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genders">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="SystemUsers">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemUsers_SystemUsers">
+    <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="1" />
+    <End Role="SystemUsers1" Type="Self.SystemUsers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="SystemUsers">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="SystemUsers1">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemUsers_SystemUsers1">
+    <End Role="UserTypes" Type="Self.UserTypes" Multiplicity="1" />
+    <End Role="SystemUsers" Type="Self.SystemUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTypes">
+        <PropertyRef Name="UserTypeID" />
+      </Principal>
+      <Dependent Role="SystemUsers">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StoreContainer">
+    <EntitySet Name="Complaints" EntityType="Self.Complaints" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComplaintsDepartments" EntityType="Self.ComplaintsDepartments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComplaintStatus" EntityType="Self.ComplaintStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ContactMethods" EntityType="Self.ContactMethods" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemUsers" EntityType="Self.SystemUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTypes" EntityType="Self.UserTypes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Complaints_ComplaintStatus" Association="Self.FK_Complaints_ComplaintStatus">
+      <End Role="ComplaintStatus" EntitySet="ComplaintStatus" />
+      <End Role="Complaints" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Complaints_ContactMethods" Association="Self.FK_Complaints_ContactMethods">
+      <End Role="ContactMethods" EntitySet="ContactMethods" />
+      <End Role="Complaints" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Complaints_Countries" Association="Self.FK_Complaints_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Complaints" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Complaints_SystemUsers" Association="Self.FK_Complaints_SystemUsers">
+      <End Role="SystemUsers" EntitySet="SystemUsers" />
+      <End Role="Complaints" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComplaintsDepartments_Complaints" Association="Self.FK_ComplaintsDepartments_Complaints">
+      <End Role="Complaints" EntitySet="Complaints" />
+      <End Role="ComplaintsDepartments" EntitySet="ComplaintsDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComplaintsDepartments_Departments" Association="Self.FK_ComplaintsDepartments_Departments">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="ComplaintsDepartments" EntitySet="ComplaintsDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Genders_Genders" Association="Self.FK_Genders_Genders">
+      <End Role="Genders" EntitySet="Genders" />
+      <End Role="Genders1" EntitySet="Genders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemUsers_Countries" Association="Self.FK_SystemUsers_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="SystemUsers" EntitySet="SystemUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemUsers_Genders" Association="Self.FK_SystemUsers_Genders">
+      <End Role="Genders" EntitySet="Genders" />
+      <End Role="SystemUsers" EntitySet="SystemUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemUsers_SystemUsers" Association="Self.FK_SystemUsers_SystemUsers">
+      <End Role="SystemUsers" EntitySet="SystemUsers" />
+      <End Role="SystemUsers1" EntitySet="SystemUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemUsers_SystemUsers1" Association="Self.FK_SystemUsers_SystemUsers1">
+      <End Role="UserTypes" EntitySet="UserTypes" />
+      <End Role="SystemUsers" EntitySet="SystemUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ComplaintManagementPortalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ComplaintManagementPortalEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Complaints" EntityType="ComplaintManagementPortalModel.Complaint" />
+    <EntitySet Name="ComplaintsDepartments" EntityType="ComplaintManagementPortalModel.ComplaintsDepartment" />
+    <EntitySet Name="ComplaintStatus" EntityType="ComplaintManagementPortalModel.ComplaintStatu" />
+    <EntitySet Name="ContactMethods" EntityType="ComplaintManagementPortalModel.ContactMethod" />
+    <EntitySet Name="Countries" EntityType="ComplaintManagementPortalModel.Country" />
+    <EntitySet Name="Departments" EntityType="ComplaintManagementPortalModel.Department" />
+    <EntitySet Name="Genders" EntityType="ComplaintManagementPortalModel.Gender" />
+    <EntitySet Name="SystemUsers" EntityType="ComplaintManagementPortalModel.SystemUser" />
+    <EntitySet Name="UserTypes" EntityType="ComplaintManagementPortalModel.UserType" />
+    <AssociationSet Name="FK_Complaints_ComplaintStatus" Association="ComplaintManagementPortalModel.FK_Complaints_ComplaintStatus">
+      <End Role="ComplaintStatu" EntitySet="ComplaintStatus" />
+      <End Role="Complaint" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Complaints_ContactMethods" Association="ComplaintManagementPortalModel.FK_Complaints_ContactMethods">
+      <End Role="ContactMethod" EntitySet="ContactMethods" />
+      <End Role="Complaint" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Complaints_Countries" Association="ComplaintManagementPortalModel.FK_Complaints_Countries">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Complaint" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Complaints_SystemUsers" Association="ComplaintManagementPortalModel.FK_Complaints_SystemUsers">
+      <End Role="SystemUser" EntitySet="SystemUsers" />
+      <End Role="Complaint" EntitySet="Complaints" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComplaintsDepartments_Complaints" Association="ComplaintManagementPortalModel.FK_ComplaintsDepartments_Complaints">
+      <End Role="Complaint" EntitySet="Complaints" />
+      <End Role="ComplaintsDepartment" EntitySet="ComplaintsDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComplaintsDepartments_Departments" Association="ComplaintManagementPortalModel.FK_ComplaintsDepartments_Departments">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="ComplaintsDepartment" EntitySet="ComplaintsDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemUsers_Countries" Association="ComplaintManagementPortalModel.FK_SystemUsers_Countries">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="SystemUser" EntitySet="SystemUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Genders_Genders" Association="ComplaintManagementPortalModel.FK_Genders_Genders">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="Gender1" EntitySet="Genders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemUsers_Genders" Association="ComplaintManagementPortalModel.FK_SystemUsers_Genders">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="SystemUser" EntitySet="SystemUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemUsers_SystemUsers" Association="ComplaintManagementPortalModel.FK_SystemUsers_SystemUsers">
+      <End Role="SystemUser" EntitySet="SystemUsers" />
+      <End Role="SystemUser1" EntitySet="SystemUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SystemUsers_SystemUsers1" Association="ComplaintManagementPortalModel.FK_SystemUsers_SystemUsers1">
+      <End Role="UserType" EntitySet="UserTypes" />
+      <End Role="SystemUser" EntitySet="SystemUsers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Complaint">
+    <Key>
+      <PropertyRef Name="ComplaintID" />
+    </Key>
+    <Property Name="ComplaintID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComplaintStatusID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="Refund" Type="Boolean" Nullable="false" />
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="Details" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ContactMethod" Type="Int32" Nullable="false" />
+    <Property Name="ComplaintLoggedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ComplaintStatu" Relationship="ComplaintManagementPortalModel.FK_Complaints_ComplaintStatus" FromRole="Complaint" ToRole="ComplaintStatu" />
+    <NavigationProperty Name="ContactMethod1" Relationship="ComplaintManagementPortalModel.FK_Complaints_ContactMethods" FromRole="Complaint" ToRole="ContactMethod" />
+    <NavigationProperty Name="Country" Relationship="ComplaintManagementPortalModel.FK_Complaints_Countries" FromRole="Complaint" ToRole="Country" />
+    <NavigationProperty Name="SystemUser" Relationship="ComplaintManagementPortalModel.FK_Complaints_SystemUsers" FromRole="Complaint" ToRole="SystemUser" />
+    <NavigationProperty Name="ComplaintsDepartments" Relationship="ComplaintManagementPortalModel.FK_ComplaintsDepartments_Complaints" FromRole="Complaint" ToRole="ComplaintsDepartment" />
+  </EntityType>
+  <EntityType Name="ComplaintsDepartment">
+    <Key>
+      <PropertyRef Name="ComplaintsDepartmentsID" />
+    </Key>
+    <Property Name="ComplaintsDepartmentsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ComplaintID" Type="Int32" Nullable="false" />
+    <Property Name="DepartmentsID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Complaint" Relationship="ComplaintManagementPortalModel.FK_ComplaintsDepartments_Complaints" FromRole="ComplaintsDepartment" ToRole="Complaint" />
+    <NavigationProperty Name="Department" Relationship="ComplaintManagementPortalModel.FK_ComplaintsDepartments_Departments" FromRole="ComplaintsDepartment" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="ComplaintStatu">
+    <Key>
+      <PropertyRef Name="ComplaintStatusID" />
+    </Key>
+    <Property Name="ComplaintStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Complaints" Relationship="ComplaintManagementPortalModel.FK_Complaints_ComplaintStatus" FromRole="ComplaintStatu" ToRole="Complaint" />
+  </EntityType>
+  <EntityType Name="ContactMethod">
+    <Key>
+      <PropertyRef Name="ContactMethodID" />
+    </Key>
+    <Property Name="ContactMethodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Complaints" Relationship="ComplaintManagementPortalModel.FK_Complaints_ContactMethods" FromRole="ContactMethod" ToRole="Complaint" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Complaints" Relationship="ComplaintManagementPortalModel.FK_Complaints_Countries" FromRole="Country" ToRole="Complaint" />
+    <NavigationProperty Name="SystemUsers" Relationship="ComplaintManagementPortalModel.FK_SystemUsers_Countries" FromRole="Country" ToRole="SystemUser" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ComplaintsDepartments" Relationship="ComplaintManagementPortalModel.FK_ComplaintsDepartments_Departments" FromRole="Department" ToRole="ComplaintsDepartment" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="GenderID" />
+    </Key>
+    <Property Name="GenderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Genders1" Relationship="ComplaintManagementPortalModel.FK_Genders_Genders" FromRole="Gender" ToRole="Gender1" />
+    <NavigationProperty Name="Gender1" Relationship="ComplaintManagementPortalModel.FK_Genders_Genders" FromRole="Gender1" ToRole="Gender" />
+    <NavigationProperty Name="SystemUsers" Relationship="ComplaintManagementPortalModel.FK_SystemUsers_Genders" FromRole="Gender" ToRole="SystemUser" />
+  </EntityType>
+  <EntityType Name="SystemUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="GenderID" Type="Int32" Nullable="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UserTypeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Complaints" Relationship="ComplaintManagementPortalModel.FK_Complaints_SystemUsers" FromRole="SystemUser" ToRole="Complaint" />
+    <NavigationProperty Name="Country" Relationship="ComplaintManagementPortalModel.FK_SystemUsers_Countries" FromRole="SystemUser" ToRole="Country" />
+    <NavigationProperty Name="Gender" Relationship="ComplaintManagementPortalModel.FK_SystemUsers_Genders" FromRole="SystemUser" ToRole="Gender" />
+    <NavigationProperty Name="SystemUsers1" Relationship="ComplaintManagementPortalModel.FK_SystemUsers_SystemUsers" FromRole="SystemUser" ToRole="SystemUser1" />
+    <NavigationProperty Name="SystemUser1" Relationship="ComplaintManagementPortalModel.FK_SystemUsers_SystemUsers" FromRole="SystemUser1" ToRole="SystemUser" />
+    <NavigationProperty Name="UserType" Relationship="ComplaintManagementPortalModel.FK_SystemUsers_SystemUsers1" FromRole="SystemUser" ToRole="UserType" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UserTypeID" />
+    </Key>
+    <Property Name="UserTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SystemUsers" Relationship="ComplaintManagementPortalModel.FK_SystemUsers_SystemUsers1" FromRole="UserType" ToRole="SystemUser" />
+  </EntityType>
+  <Association Name="FK_Complaints_ComplaintStatus">
+    <End Type="ComplaintManagementPortalModel.ComplaintStatu" Role="ComplaintStatu" Multiplicity="1" />
+    <End Type="ComplaintManagementPortalModel.Complaint" Role="Complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComplaintStatu">
+        <PropertyRef Name="ComplaintStatusID" />
+      </Principal>
+      <Dependent Role="Complaint">
+        <PropertyRef Name="ComplaintStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Complaints_ContactMethods">
+    <End Type="ComplaintManagementPortalModel.ContactMethod" Role="ContactMethod" Multiplicity="1" />
+    <End Type="ComplaintManagementPortalModel.Complaint" Role="Complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ContactMethod">
+        <PropertyRef Name="ContactMethodID" />
+      </Principal>
+      <Dependent Role="Complaint">
+        <PropertyRef Name="ContactMethod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Complaints_Countries">
+    <End Type="ComplaintManagementPortalModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="ComplaintManagementPortalModel.Complaint" Role="Complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="Complaint">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Complaints_SystemUsers">
+    <End Type="ComplaintManagementPortalModel.SystemUser" Role="SystemUser" Multiplicity="1" />
+    <End Type="ComplaintManagementPortalModel.Complaint" Role="Complaint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SystemUser">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Complaint">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComplaintsDepartments_Complaints">
+    <End Type="ComplaintManagementPortalModel.Complaint" Role="Complaint" Multiplicity="1" />
+    <End Type="ComplaintManagementPortalModel.ComplaintsDepartment" Role="ComplaintsDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Complaint">
+        <PropertyRef Name="ComplaintID" />
+      </Principal>
+      <Dependent Role="ComplaintsDepartment">
+        <PropertyRef Name="ComplaintID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComplaintsDepartments_Departments">
+    <End Type="ComplaintManagementPortalModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="ComplaintManagementPortalModel.ComplaintsDepartment" Role="ComplaintsDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="DepartmentID" />
+      </Principal>
+      <Dependent Role="ComplaintsDepartment">
+        <PropertyRef Name="DepartmentsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemUsers_Countries">
+    <End Type="ComplaintManagementPortalModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="ComplaintManagementPortalModel.SystemUser" Role="SystemUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="SystemUser">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Genders_Genders">
+    <End Type="ComplaintManagementPortalModel.Gender" Role="Gender" Multiplicity="1" />
+    <End Type="ComplaintManagementPortalModel.Gender" Role="Gender1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="Gender1">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemUsers_Genders">
+    <End Type="ComplaintManagementPortalModel.Gender" Role="Gender" Multiplicity="1" />
+    <End Type="ComplaintManagementPortalModel.SystemUser" Role="SystemUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="GenderID" />
+      </Principal>
+      <Dependent Role="SystemUser">
+        <PropertyRef Name="GenderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemUsers_SystemUsers">
+    <End Type="ComplaintManagementPortalModel.SystemUser" Role="SystemUser" Multiplicity="1" />
+    <End Type="ComplaintManagementPortalModel.SystemUser" Role="SystemUser1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="SystemUser">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="SystemUser1">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SystemUsers_SystemUsers1">
+    <End Type="ComplaintManagementPortalModel.UserType" Role="UserType" Multiplicity="1" />
+    <End Type="ComplaintManagementPortalModel.SystemUser" Role="SystemUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="UserTypeID" />
+      </Principal>
+      <Dependent Role="SystemUser">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

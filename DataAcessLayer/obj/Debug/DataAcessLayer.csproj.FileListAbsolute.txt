@@ -1,0 +1,11 @@
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\DataAcessLayer\bin\Debug\DataAcessLayer.dll.config
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\DataAcessLayer\bin\Debug\DataAcessLayer.dll
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\DataAcessLayer\bin\Debug\DataAcessLayer.pdb
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\DataAcessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\DataAcessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\DataAcessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\DataAcessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\DataAcessLayer\obj\Debug\DataAcessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\DataAcessLayer\obj\Debug\DataAcessLayer.csproj.CopyComplete
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\DataAcessLayer\obj\Debug\DataAcessLayer.dll
+C:\Users\Mousa\source\repos\ComplaintManagementPortalProject\DataAcessLayer\obj\Debug\DataAcessLayer.pdb

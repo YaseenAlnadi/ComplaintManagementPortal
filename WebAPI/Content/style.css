@@ -1,0 +1,153 @@
+﻿.navbar-default
+{
+    background-color: #0c5c82;
+    border-color: #e7e7e7;
+}
+
+ .navbar-default .navbar-nav>li>a
+ {
+        color: #fff;
+  }
+
+.navbar-default .navbar-nav > li > a:hover
+{
+    color: #e7e7e7;
+}
+.nav>li {
+    position: relative;
+    display: block;
+    height: 60px;
+    padding-top: 10px;
+        }
+.navbar-default .navbar-nav > li > a:active {
+    color: #e7e7e7;
+}
+
+.subfooter {
+    background-color: #0c5c82;
+    color: #fff;
+    text-align:center;
+    width:100%;
+    position:fixed;
+    bottom:0;
+}
+
+h3, .h3 , h4 ,.h4 {
+    margin-top: 24px;
+    margin-left: 17px;
+    display: inline-block;
+}
+
+
+
+.form-horizontal .control-label {
+    text-align: left;
+    /* margin-left: 9px; */
+    left: 35px;
+}
+
+.col-md-2 {
+    width: 15rem;
+}
+
+.form-horizontal .form-group {
+    margin-left: -1px;
+    margin-right: unset;	
+}
+
+
+.textarea {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-success {
+    font-size: 17px;
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    float: right;
+    width: 100px;
+    height: 41px;
+    margin-right: 75px;
+}
+
+.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+    width: 90%;
+    margin-left: 51px;
+}
+.form-horizontal .control-label {
+    text-align: left;
+    left: 15px;
+}
+
+select[multiple], select[size] {
+    height: 93px;
+}
+
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    width: 100%;
+    height: 100px;
+}
+.form-horizontal .form-group {
+   
+    margin-top: 20px;
+}
+.btn-success {
+    margin-bottom: 30px;
+}
+
+dl {
+    margin-top: 0;
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+
+.dl-horizontal dt {
+    width: 164px;
+}
+
+.dl-horizontal dd {
+    margin-left: 180px;
+    margin-bottom: 5px;
+}
+
+.input{
+    width: 50%;
+}
+
+.save {
+    margin-right: 556px;
+    margin-top: 20px;
+}
+
+h1,h2 {
+    font-size: 29px;
+    margin-top: 80px;
+    margin-left: 25px;
+}
+
+.textareaa{
+    width:50%;
+    margin-bottom: 25px;
+}
+
+.sign {
+    margin-right: 631px;
+    margin-top: -40px;
+}

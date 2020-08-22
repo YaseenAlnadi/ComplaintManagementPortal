@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ER9IlmzKmFaSPlZF//jc04ljTHB/ulE8ntV7mgsk32xIxvD+DvaSWnvEtCXY8B2N9ct5+aGqEtyOo800oJnoEQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Mousa\\source\\repos\\ComplaintManagementPortalProject\\DAL\\DAL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mousa\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Mousa\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,99 @@
+﻿@model WebAPI.Models.ComplaintDetails
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div>
+    <h4>Edit Complaint Status</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactMethod)
+        </dt>
+        <dd>
+            @Html.DropDownListFor(Model => Model.ComplaintStatusID, Model.ComplaintStatus, "Select Complaint Status", new { id = "Methods", @class = "form-control input", @TabIndex = 13 })
+            @Html.ValidationMessageFor(model => model.ContactMethod, "", new { @class = "text-danger" })
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplaySenderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisplaySenderName)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Refund)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Refund)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departments)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactMethods)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactMethods)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Details)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComplaintLoggedTime)
+        </dt>
+
+
+        <dd>
+            @Html.DisplayFor(model => model.ComplaintLoggedTime)
+        </dd>
+        <dd>
+            @Html.HiddenFor(model => model.ComplaintsID)
+        </dd>
+
+
+    </dl>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-success save" />
+        </div>
+    </div>
+</div>
+
+}
